@@ -3,16 +3,26 @@ import ReactDOM from 'react-dom/client'
 
 //Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+import "bootstrap";
 
 // index.css'
 import '../styles/index.css'
-
-// components
 import Home from './components/Home';
+import SimpleCounter from './components/SimpleCounter';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+
+const reactRender = ReactDOM.createRoot(document.getElementById('root'))
+
+let counter = 0;
+
+setInterval(()=>{
+
+  reactRender.render(
   <React.StrictMode>
-    <Home/>
+    <Home counter={counter}/>
   </React.StrictMode>,
 )
+
+  counter++
+},1000)
